@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:26:13 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:31 by hfujita          ###   ########.fr       */
+/*   Created: 2024/04/10 04:44:31 by fujitaharuk       #+#    #+#             */
+/*   Updated: 2024/04/10 04:46:49 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "ft_printf/srcs/ft_printf.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <errno.h>
-
-void	perror_exit(void);
-#endif
+int	ft_toupper(int c)
+{
+	if ('a' <= c && c <= 'z')
+		c -= 32;
+	return (c);
+}

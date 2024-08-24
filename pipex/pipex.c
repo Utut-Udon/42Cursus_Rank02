@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
+/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:25:11 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 15:25:11 by fujitaharuk      ###   ########.fr       */
+/*   Updated: 2024/08/24 23:29:43 by hfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pipex.h"
+
+int	main(int argc, const char **argv)
+{
+		
+}

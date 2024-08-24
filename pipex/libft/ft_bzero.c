@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:26:13 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:31 by hfujita          ###   ########.fr       */
+/*   Created: 2024/04/08 00:18:44 by fujitaharuk       #+#    #+#             */
+/*   Updated: 2024/04/10 04:25:49 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "ft_printf/srcs/ft_printf.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <errno.h>
+void	ft_bzero(void *s, size_t n)
+{
+	char	*ptr;
 
-void	perror_exit(void);
-#endif
+	if (n == 0)
+		return ;
+	ptr = (char *)s;
+	while (n-- > 0)
+		*(ptr++) = 0;
+}

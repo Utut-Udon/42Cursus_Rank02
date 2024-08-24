@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:26:13 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:31 by hfujita          ###   ########.fr       */
+/*   Created: 2024/04/10 04:50:26 by fujitaharuk       #+#    #+#             */
+/*   Updated: 2024/04/17 23:22:45 by hfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "ft_printf/srcs/ft_printf.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <errno.h>
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*mem;
+	size_t	mem_buf;
 
-void	perror_exit(void);
-#endif
+	if (size != 0 && UINT_MAX / size < count)
+		return (NULL);
+	mem_buf = size * count;
+	mem = (void *)malloc(mem_buf);
+	if (!mem)
+		return (NULL);
+	ft_bzero (mem, mem_buf);
+	return (mem);
+}

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:26:13 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:31 by hfujita          ###   ########.fr       */
+/*   Created: 2024/04/15 12:38:47 by fujitaharuk       #+#    #+#             */
+/*   Updated: 2024/04/15 21:30:15 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "ft_printf/srcs/ft_printf.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <errno.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*newlst;
 
-void	perror_exit(void);
-#endif
+	newlst = malloc(sizeof(t_list));
+	if (!newlst)
+		return (NULL);
+	newlst->content = content;
+	newlst->next = NULL;
+	return (newlst);
+}

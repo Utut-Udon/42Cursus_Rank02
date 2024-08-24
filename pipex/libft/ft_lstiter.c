@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:26:13 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:31 by hfujita          ###   ########.fr       */
+/*   Created: 2024/04/15 21:25:28 by fujitaharuk       #+#    #+#             */
+/*   Updated: 2024/04/17 06:30:50 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include "ft_printf/srcs/ft_printf.h"
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdio.h>
-# include <errno.h>
-
-void	perror_exit(void);
-#endif
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (f)
+	{
+		while (lst)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+	}
+}
