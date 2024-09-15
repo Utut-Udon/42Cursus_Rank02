@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 20:36:21 by hfujita           #+#    #+#             */
-/*   Updated: 2024/08/24 20:37:20 by hfujita          ###   ########.fr       */
+/*   Created: 2024/09/15 16:29:20 by hfujita           #+#    #+#             */
+/*   Updated: 2024/09/15 17:47:15 by hfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	perror_exit(void)
+void	destroy_words_cnt(char **dst, size_t cnt)
 {
-	perror(errno);
-	exit(1);
+	while (cnt-- > 0)
+		free (dst[cnt]);
+	free (dst);
+}
+
+void	destroy_words(char **dst)
+{
+	int	i;
+
+	i = -1;
+	while (dst[++i])
+		free (dst[i]);
+	free (dst);
 }
