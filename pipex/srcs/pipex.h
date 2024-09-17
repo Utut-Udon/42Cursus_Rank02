@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
+# include <sys/wait.h>
 # include <stdio.h>
 # include <errno.h>
 

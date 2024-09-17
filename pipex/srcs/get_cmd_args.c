@@ -17,7 +17,7 @@ int	is_quotation(char c)
 	return (c == '\'' || c == '\"');
 }
 
-static int	word_cnt(const char *s, char c)
+int	word_cnt(const char *s, char c)
 {
 	int	cnt;
 	int	in_word;
@@ -50,15 +50,19 @@ int	get_word_len(char const *s, char c, int quoted)
 	int	len;
 
 	len = 0;
-	while (s[len] && (*s == c && !quoted))
+	while (s[len] && (s[len] != c || quoted))
 	{
-		quoted = (quoted + is_quotation(*s)) % 2;
-		len++;
+        if (is_quotation(s[len]))
+		{
+            quoted = (quoted + is_quotation(s[len])) % 2;
+			break ;
+		}
+        len++;
 	}
 	return (len);
 }
 
-static char	*get_word(char const **s, char c)
+char	*get_word(char const **s, char c)
 {
 	int		len;
 	char	*dst;
