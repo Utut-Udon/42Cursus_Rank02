@@ -6,7 +6,7 @@ EXISTING_LIB_DIR = ./libft
 EXISTING_LIB = $(EXISTING_LIB_DIR)/libft.a
 SRC_DIR = srcs
 
-SRCS = 	srcs/error.c\
+SRCS = 	srcs/error.c			srcs/get_cmd_args.c\
 		srcs/free.c				srcs/get_next_line_utils_bonus.c	srcs/pipex.c\
 		srcs/get_next_line_bonus.c			srcs/pipex_utils.c\
 

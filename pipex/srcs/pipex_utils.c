@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 13:18:25 by hfujita           #+#    #+#             */
-/*   Updated: 2024/09/15 17:34:00 by hfujita          ###   ########.fr       */
+/*   Updated: 2024/09/17 22:09:00 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	open_file(char *file, int open_id)
 	if (open_id == INFILE)
 		fd = open(file, O_RDONLY);
 	else if (open_id == OUTFILE)
-		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	else
-		fd = open(file, O_WRONLY | O_CREAT | O_APPEND, 0777);
+		fd = open(file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (fd == -1)
 	{
 		perror_exit();
@@ -56,7 +56,7 @@ char	*find_path(char *basename, char **envp)
 	{
 		cmd_path = ft_strjoin(paths[i], basename);
 		if (access(cmd_path, F_OK) == 0)
-			break;
+			break ;
 		i++;
 	}
 	if (!paths[i])
@@ -66,27 +66,37 @@ char	*find_path(char *basename, char **envp)
 	return (cmd_path);
 }
 
+void	print_args(char **args)
+{
+	while (*args)
+	{
+		ft_putstr_fd(*args, 2);
+		ft_putstr_fd("\n", 2);
+		args++;
+	}
+}
+
 void	exec_cmd(char *cmd, char **envp)
 {
-	char	**cmd_split;
+	char	**cmd_args;
 	char	*cmd_path;
 	char	*basename;
 	int		flag;
 
-	cmd_split = ft_split(cmd, ' ');
-	basename = ft_strrchr(cmd_split[0], '/');
+	cmd_args = get_cmd_args(cmd, ' ');
+	basename = ft_strrchr(cmd_args[0], '/');
 	flag = 0;
 	if (!basename)
 	{
-		basename = ft_strjoin("/", cmd_split[0]);
+		basename = ft_strjoin("/", cmd_args[0]);
 		if (!basename)
 			perror_exit();
 		cmd_path = find_path(basename, envp);
 	}
 	else
-		cmd_path = ft_strdup(cmd_split[0]);
-	flag = execve(cmd_path, cmd_split, envp);
-	destroy_words(cmd_split);
+		cmd_path = ft_strdup(cmd_args[0]);
+	flag = execve(cmd_path, cmd_args, envp);
+	destroy_words(cmd_args);
 	free(cmd_path);
 	if (flag == -1)
 		perror_exit();

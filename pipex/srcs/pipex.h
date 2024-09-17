@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:42:30 by hfujita           #+#    #+#             */
-/*   Updated: 2024/09/15 17:48:14 by hfujita          ###   ########.fr       */
+/*   Updated: 2024/09/17 21:51:36 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	notfound_error(int id);
 void	malloc_error_free(char *dst);
 void	destroy_words_cnt(char **dst, size_t cnt);
 void	destroy_words(char **dst);
+char	**get_cmd_args(char const *s, char c);
 
 #endif

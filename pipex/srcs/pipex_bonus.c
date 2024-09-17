@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:37:20 by hfujita           #+#    #+#             */
-/*   Updated: 2024/09/15 17:37:22 by hfujita          ###   ########.fr       */
+/*   Updated: 2024/09/17 22:13:31 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ int	main(int argc, char **argv, char **envp)
 	int	in_fd;
 	int	out_fd;
 	int	i;
-	
+
+	ft_putchar_fd('0' + 2, 2);
+	ft_putchar_fd('\n', 2);
 	if (argc == 5)
 	{
 		in_fd = open_file(argv[1], INFILE);
 		out_fd = open_file(argv[argc - 1], OUTFILE);
+		ft_putchar_fd('0' + 2, 2);
+		ft_putchar_fd('\n', 2);
 		my_dup2(in_fd, STDIN_FILENO);
 		i = 2;
 		while (i < argc - 2)

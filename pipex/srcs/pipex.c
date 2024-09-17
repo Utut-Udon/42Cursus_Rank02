@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfujita <hfujita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fujitaharuki <fujitaharuki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:25:11 by fujitaharuk       #+#    #+#             */
-/*   Updated: 2024/09/15 17:36:54 by hfujita          ###   ########.fr       */
+/*   Updated: 2024/09/17 20:21:44 by fujitaharuk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int argc, char **argv, char **envp)
 	int	in_fd;
 	int	out_fd;
 	int	i;
-	
+
 	if (argc == 5)
 	{
 		in_fd = open_file(argv[1], INFILE);
